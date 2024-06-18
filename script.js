@@ -1,42 +1,34 @@
-let listeMots = ["Cachalot", "Pétunia", "Serviette"];
+const listeMots = ["Cachalot", "Pétunia", "Serviette"];
+const listePhrases = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"];
 
 let score = 0;
 
-let motTape = prompt("Veuillez taper le mot : " + listeMots[0]);
-
-if (motTape === listeMots[0]) {
-  score++;
-  console.log("gg");
-} else{
-    console.log("vous avez fait une erreur");
+//user choice
+let choix = prompt("voulez-vous jouer avec des 'mots' ou des 'phrases' ?");
+while (choix !== "mots" && choix !== "phrases") {
+    choix = prompt("voulez-vous jouer avec des 'mots' ou des 'phrases' ?");
 }
 
-console.log("Score final : " + score);
-
-motTape = prompt("Veuillez taper le mot : " + listeMots[1]);
-
-if (motTape === listeMots[1]) {
-    score++;
-    console.log("gg");
-  } else{
-      console.log("vous avez fait une erreur");
-  }
-
-  
-console.log("Score final : " + score);
-
-motTape = prompt("Veuillez taper le mot : " + listeMots[2]);
-
-if (motTape === listeMots[2]) {
-    score++;
-    console.log("gg");
-  } else{
-      console.log("vous avez fait une erreur");
-  }
-
-  
-console.log("Score final : " + score);
-
-for (let i = 0; i < 3; i++) {
-    console.log(i)
+if (choix === "mots") {
+    for (let i = 0; i < listeMots.length; i++) {
+        let motUtilisateur = prompt("entrez le mot : " + listeMots[i]);
+        if (motUtilisateur === listeMots[i]) {
+            console.log("gg");
+            score++;
+        } else{
+            console.log("vous avez fait une erreur");
+        }
+    }
+    console.log("votre score est de " + score + " sur " + listeMots.length);
+} else {
+    for (let i = 0; i < listePhrases.length; i++) {
+        let phraseUtilisateur = prompt("entrez la phrase : " + listePhrases[i]);
+        if (phraseUtilisateur === listePhrases[i]) {
+            console.log("gg");
+            score++;
+        }else{
+            console.log("vous avez fait une erreur");
+        }
+    }
+    console.log("votre score est de " + score + " sur " + listePhrases.length);
 }
